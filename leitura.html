@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#061f2d">
+
+  <title>Leitura | Sociedade Literária</title>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <a href="membros.html" class="brand">
+      <img src="assets/logo-sociedade-literaria.jpeg" alt="Sociedade Literária">
+      <span>Sociedade <b>Literária</b></span>
+    </a>
+
+    <a href="membros.html#biblioteca" class="nav-join">
+      ← Voltar à biblioteca
+    </a>
+  </header>
+
+  <main class="reader-page">
+
+    <section class="reader-heading">
+      <div class="section-kicker">ACERVO / LEITURA</div>
+
+      <h1 id="readerTitle">Carregando obra...</h1>
+
+      <p id="readerAuthor"></p>
+      <span class="tag" id="readerGenre"></span>
+    </section>
+
+    <section class="reader-details">
+
+      <div class="reader-cover" id="readerCover">
+        <span>Sociedade Literária</span>
+      </div>
+
+      <div class="reader-description">
+        <h2>Sobre a <em>obra.</em></h2>
+
+        <p id="readerSynopsis">
+          Carregando sinopse...
+        </p>
+
+        <div class="reader-actions">
+          <a
+            href="#"
+            id="readerDownload"
+            class="button button-gold hidden"
+            download
+          >
+            Baixar PDF
+          </a>
+
+          <a href="membros.html#biblioteca" class="button button-outline">
+            Voltar ao acervo
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="reader-document">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">DOCUMENTO</div>
+          <h2>Boa <em>leitura.</em></h2>
+        </div>
+      </div>
+
+      <div class="reader-pdf" id="readerPdf">
+        <p>Preparando o documento...</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <img src="assets/logo-sociedade-literaria.jpeg" alt="">
+      <span>Sociedade <b>Literária</b></span>
+    </div>
+
+    <p>Um espaço para histórias que merecem ser lidas.</p>
+  </footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/media.js"></script>
+  <script src="js/reader.js"></script>
+
+</body>
+</html>

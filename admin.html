@@ -1,0 +1,238 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Painel | Sociedade Literária</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="admin-body">
+
+  <header class="admin-top">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-sociedade-literaria.jpeg" alt="">
+      <span>Sociedade <b>Literária</b></span>
+    </a>
+
+    <a class="text-link" href="index.html">← Ver site público</a>
+  </header>
+
+  <main class="admin-main">
+
+    <div class="admin-heading">
+      <div class="section-kicker">CENTRAL DE GESTÃO</div>
+      <h1>Painel <em>administrativo.</em></h1>
+      <p>Gerencie os conteúdos apresentados no site da Sociedade Literária.</p>
+    </div>
+
+    <div class="notice">
+      <b>Modo de demonstração:</b>
+      os dados são salvos neste navegador (localStorage).
+      Para uma equipe acessar e editar de diferentes dispositivos,
+      conecte futuramente um backend com autenticação.
+    </div>
+
+    <!-- NAVEGAÇÃO DO PAINEL -->
+    <div class="admin-tabs" role="tablist">
+      <button class="active" data-tab="books">Biblioteca</button>
+      <button data-tab="events">Concursos</button>
+      <button data-tab="winners">Hall da fama</button>
+      <button data-tab="products">Loja</button>
+      <button data-tab="people">Administração</button>
+      <button data-tab="writers">Escritores</button>
+      <button data-tab="settings">Configurações</button>
+    </div>
+
+    <!-- BIBLIOTECA -->
+    <section class="admin-panel active" id="panel-books">
+      <div class="panel-title">
+        <h2>Obras da biblioteca</h2>
+        <button class="button button-gold" id="addBook">+ Nova obra</button>
+      </div>
+      <div id="adminBooks" class="admin-list"></div>
+    </section>
+
+    <!-- CONCURSOS -->
+    <section class="admin-panel" id="panel-events">
+      <div class="panel-title">
+        <h2>Concursos e notícias</h2>
+        <button class="button button-gold" id="addEvent">+ Novo item</button>
+      </div>
+      <div id="adminEvents" class="admin-list"></div>
+    </section>
+
+    <!-- HALL DA FAMA -->
+    <section class="admin-panel" id="panel-winners">
+      <div class="panel-title">
+        <h2>Vencedores</h2>
+        <button class="button button-gold" id="addWinner">+ Novo vencedor</button>
+      </div>
+      <div id="adminWinners" class="admin-list"></div>
+    </section>
+
+    <!-- LOJA -->
+    <section class="admin-panel" id="panel-products">
+      <div class="panel-title">
+        <h2>Produtos</h2>
+        <button class="button button-gold" id="addProduct">+ Novo produto</button>
+      </div>
+      <div id="adminProducts" class="admin-list"></div>
+    </section>
+
+    <!-- ADMINISTRAÇÃO -->
+    <section class="admin-panel" id="panel-people">
+      <div class="panel-title">
+        <h2>Fundadora e administração</h2>
+        <button class="button button-gold" id="addPerson">+ Adicionar pessoa</button>
+      </div>
+      <div id="adminPeople" class="admin-list"></div>
+    </section>
+
+    <!-- ESCRITORES -->
+    <section class="admin-panel" id="panel-writers">
+      <div class="panel-title">
+        <div>
+          <h2>Escritores da Sociedade</h2>
+          <p>Gerencie os perfis e as trajetórias literárias dos membros.</p>
+        </div>
+
+        <button class="button button-gold" id="addWriter">
+          + Novo escritor
+        </button>
+      </div>
+
+      <div id="adminWriters" class="admin-list"></div>
+    </section>
+
+    <!-- CONFIGURAÇÕES -->
+    <section class="admin-panel" id="panel-settings">
+
+      <div class="panel-title">
+        <h2>Informações gerais</h2>
+      </div>
+
+      <form id="settingsForm" class="admin-form">
+
+        <label>
+          História / apresentação
+          <textarea name="history" rows="4"></textarea>
+        </label>
+
+        <label>
+          História do Caso Elisabet
+          <textarea name="elisabetLore" rows="4"></textarea>
+        </label>
+
+        <label>
+          Link de convite do WhatsApp
+          <input name="whatsapp" placeholder="https://wa.me/...">
+        </label>
+
+        <label>
+          Instagram
+          <input name="instagram" placeholder="https://instagram.com/...">
+        </label>
+
+        <label>
+          Facebook
+          <input name="facebook" placeholder="https://facebook.com/...">
+        </label>
+
+        <label>
+          Fotografia da Elisabet (caminho ou URL)
+          <input name="elisabetPhoto" placeholder="assets/elisabet.jpg">
+        </label>
+
+        <button class="button button-gold" type="submit">
+          Salvar configurações
+        </button>
+
+      </form>
+
+      <div class="backup-actions">
+
+        <button class="button button-outline" id="exportData">
+          Exportar backup JSON
+        </button>
+
+        <label class="button button-outline file-label">
+          Importar backup JSON
+          <input type="file" id="importData" accept="application/json">
+        </label>
+
+        <button class="button button-danger" id="resetData">
+          Restaurar dados de exemplo
+        </button>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- JANELA DE EDIÇÃO -->
+  <div class="modal-backdrop hidden" id="modal">
+
+    <form class="modal-card" id="editForm">
+
+      <div class="modal-head">
+        <h2 id="modalTitle">Editar item</h2>
+        <button type="button" id="closeModal" aria-label="Fechar">×</button>
+      </div>
+
+      <div id="modalFields" class="admin-form"></div>
+
+      <div class="modal-actions">
+        <button type="button" class="button button-outline" id="cancelModal">
+          Cancelar
+        </button>
+
+        <button type="submit" class="button button-gold">
+          Salvar
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <!-- ARQUIVOS JAVASCRIPT -->
+  <script src="js/store.js"></script>
+  <script src="js/media.js"></script>
+  <script src="js/admin.js"></script>
+
+  <!-- ARQUIVOS Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+
+
+
+<script>
+(async () => {
+  const { data: { session } } = await window.supabaseClient.auth.getSession();
+
+  if (!session) {
+    window.location.href = "login.html";
+    return;
+  }
+
+  const { data: adminRow, error } = await window.supabaseClient
+    .from("admin_users")
+    .select("user_id")
+    .eq("user_id", session.user.id)
+    .maybeSingle();
+
+  if (error || !adminRow) {
+    await window.supabaseClient.auth.signOut();
+    window.location.href = "login.html";
+  }
+})();
+</script>
+</body>
+</html>

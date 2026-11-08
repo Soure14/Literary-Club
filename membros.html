@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sociedade Literária — entre páginas, histórias e amizades.">
+  <title>Sociedade Literária | Clube</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="#inicio"><img src="assets/logo-sociedade-literaria.jpeg" alt="Logo da Sociedade Literária"><span>Sociedade <b>Literária</b></span></a>
+  <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  <nav class="main-nav">
+    <a href="#historia">O clube</a><a href="#biblioteca">Biblioteca</a><a href="#concursos">Concursos</a><a href="#hall">Hall da fama</a><a href="#elisabet">Elisabet</a><a href="#loja">Loja</a>
+  </nav>
+  <a class="nav-join" id="headerJoin" href="#membro">Torne-se membro <span>↗</span></a>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="hero-copy">
+    <p class="eyebrow"><span></span> UM CLUBE PARA QUEM AMA HISTÓRIAS</p>
+    <h1>Algumas histórias<br>merecem ser <em>vividas.</em></h1>
+    <p class="hero-lead">Um espaço de leitores, ideias e encontros. Aqui, cada página abre uma conversa — e cada pessoa pode fazer parte da história.</p>
+    <div class="hero-actions"><a class="button button-gold" href="#historia">Conheça a sociedade <span>↗</span></a><a class="text-link" href="#biblioteca">Explore a biblioteca</a></div>
+    <div class="hero-note"><span class="seal">✦</span><span>FUNDADA POR STELLEN HENDERSON<br><small>Uma sociedade feita de leitores</small></span></div>
+  </div>
+  <div class="hero-art">
+    <div class="hero-frame"><img src="assets/logo-sociedade-literaria.jpeg" alt="Emblema do Clube Sociedade Literária"></div>
+    <span class="art-caption">LITTERAE · CULTURA · COMMUNITAS</span>
+    <span class="decor decor-one">✳</span><span class="decor decor-two">✦</span>
+  </div>
+</section>
+
+<div class="ticker"><span>LER · PENSAR · COMPARTILHAR</span><span>✦</span><span>LER · PENSAR · COMPARTILHAR</span><span>✦</span><span>LER · PENSAR · COMPARTILHAR</span></div>
+
+<section class="section intro-section" id="historia">
+  <div class="section-kicker">01 / A SOCIEDADE</div>
+  <div class="intro-grid">
+    <div><h2>Mais que um clube.<br><em>Uma comunidade.</em></h2></div>
+    <div class="intro-text"><p id="clubHistory">A Sociedade Literária nasceu do desejo de reunir pessoas que encontram nos livros muito mais do que palavras: encontram ideias, companhia, imaginação e novas formas de olhar o mundo.</p><p>Entre leituras compartilhadas, concursos e conversas, construímos um lugar onde toda voz tem espaço e toda história merece atenção.</p><a class="under-link" href="#membro">Faça parte dessa história ↗</a></div>
+  </div>
+  <div class="people-grid" id="administrators"></div>
+</section>
+
+<section class="section library-section" id="biblioteca">
+  <div class="section-heading"><div><div class="section-kicker">02 / ACERVO</div><h2>A biblioteca <em>do clube.</em></h2></div><p>Obras que já passaram por nossas mãos, encontros e discussões.</p></div>
+  <div class="library-tools"><input id="bookSearch" type="search" placeholder="Buscar por título ou autor..." aria-label="Buscar livros"><select id="bookGenre" aria-label="Filtrar por gênero"><option value="">Todos os gêneros</option></select></div>
+  <div class="book-grid" id="bookGrid"></div>
+  <p class="empty-state hidden" id="bookEmpty">Nenhuma obra encontrada. Tente outra busca.</p>
+</section>
+
+<section class="section events-section" id="concursos">
+  <div class="section-heading"><div><div class="section-kicker">03 / MOVIMENTO</div><h2>Ideias em <em>disputa.</em></h2></div><p>Concursos, desafios e novidades que movimentam a sociedade.</p></div>
+  <div class="event-grid" id="eventGrid"></div>
+  <div class="social-strip"><div><span class="section-kicker">ACOMPANHE A SOCIEDADE</span><h3>As conversas continuam <em>fora das páginas.</em></h3></div><div id="socialLinks" class="social-links"></div></div>
+</section>
+
+<section class="hall-section" id="hall">
+  <div class="section section-hall">
+    <div class="section-kicker">04 / RECONHECIMENTO</div><div class="section-heading"><h2>Hall da <em>Fama.</em></h2><p>Uma salva de palmas para quem deixou sua marca.</p></div>
+    <div class="podium" id="podium"></div>
+    <div class="hall-table-wrap"><table class="hall-table"><thead><tr><th>POSIÇÃO</th><th>MEMBRO</th><th>CONQUISTA</th><th>ANO</th></tr></thead><tbody id="hallRows"></tbody></table></div>
+  </div>
+</section>
+
+<section class="section elisabet-section" id="elisabet">
+  <div class="section-kicker">05 / ARQUIVOS CONFIDENCIAIS</div>
+  <div class="elisabet-grid">
+    <div class="elisabet-photo"><div class="classified">ARQUIVO Nº 007 · CONFIDENCIAL</div><img id="elisabetPhoto" src="assets/logo-sociedade-literaria.jpeg" alt="Retrato de Elisabet — fotografia a ser adicionada"><span class="photo-note">IDENTIDADE SOB INVESTIGAÇÃO</span></div>
+    <div class="elisabet-copy"><p class="eyebrow">O ESCRITÓRIO DE PROGNÓSTICOS</p><h2>O Caso <em>Elisabet.</em></h2><p id="elisabetLore">Dizem que toda sociedade respeitável precisa de uma tradição questionável. A nossa atende pelo nome de Elisabet: uma casa de apostas informal, movida por palpites, rivalidade saudável e uma quantidade suspeita de confiança.</p><div class="case-facts"><div><small>STATUS</small><b>Em atividade</b></div><div><small>REGRA Nº 1</small><b>Palpite dado, palpite honrado</b></div></div><a class="button button-outline" href="#membro">Descubra como participar ↗</a></div>
+  </div>
+</section>
+
+<section class="section shop-section" id="loja">
+  <div class="section-heading"><div><div class="section-kicker">06 / OBJETOS DE DEVOÇÃO</div><h2>Pequenos símbolos.<br><em>Grandes histórias.</em></h2></div><p>Uma vitrine de lembranças e produtos reservados aos membros da sociedade.</p></div>
+  <div class="product-grid" id="productGrid"></div>
+  <p class="shop-disclaimer">Os produtos apresentados são ilustrativos. Disponibilidade, valores e formas de resgate serão informados pela administração.</p>
+</section>
+
+<section class="join-section" id="membro">
+  
+  <div class="whatsapp-options">
+  <a class="button button-gold" id="whatsappPortugal" href="#" target="_blank" rel="noopener">
+    Falar com Stellen ↗
+  </a>
+
+  <a class="button button-outline" id="whatsappBrasil" href="#" target="_blank" rel="noopener">
+    Falar com Kayky ↗
+  </a>
+</div><small>O ingresso é confirmado pela administração do clube.</small>
+</section>
+</main>
+
+<footer class="site-footer"><div class="footer-brand"><img src="assets/logo-sociedade-literaria.jpeg" alt=""><span>Sociedade <b>Literária</b></span></div><p>Entre páginas, histórias e amizades.</p><div><a href="#inicio">Voltar ao início ↑</a><a href="admin.html">Área administrativa</a></div><small>© <span id="year"></span> Sociedade Literária. Todos os direitos reservados.</small></footer>
+<script src="js/store.js"></script>
+<script src="js/media.js"></script>
+<script src="js/site.js"></script>
+</body></html>
